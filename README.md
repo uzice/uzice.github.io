@@ -1,2 +1,0 @@
-# uzice.github.io
-mojsajt
