@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="images/title-img.png">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  <script defer src="./static/js/all.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="./static/css/bootstrap.css">
+  <link rel="stylesheet" href="./static/css/style.css">
   <title>PhotoX</title>
 </head>
 <body>
@@ -74,17 +74,17 @@
       <!-- end of title -->
       <div class="row my-5">
         <div class="col-md-4 text-center">
-          <i class="fas fa-cogs fa-5x text-danger mb-4"></i>
+          <i class="fal fa-cogs fa-5x text-danger mb-4"></i>
           <h1 class="text-white mb-3">Creativity</h1>
           <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic perferendis dolor vitae sed, quae officiis exercitationem quaerat? Fugit excepturi exercitationem inventore, repellendus architecto illum!</p>
         </div>
         <div class="col-md-4 text-center">
-            <i class="far fa-thumbs-up fa-5x text-danger mb-4"></i>
+            <i class="fal fa-chart-bar fa-5x text-danger mb-4"></i>
             <h1 class="text-white mb-3">Quality</h1>
             <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic perferendis dolor vitae sed, quae officiis exercitationem quaerat? Fugit excepturi exercitationem inventore, repellendus architecto illum!</p>
         </div>
         <div class="col-md-4 text-center">
-            <i class="far fa-handshake fa-5x text-danger mb-4"></i>
+            <i class="fal fa-industry-alt fa-5x text-danger mb-4"></i>
             <h1 class="text-white mb-3">Experience</h1>
             <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic perferendis dolor vitae sed, quae officiis exercitationem quaerat? Fugit excepturi exercitationem inventore, repellendus architecto illum!</p>
         </div>
@@ -485,18 +485,46 @@
       </div>
       <div class="row">
         <div class="col text-center text-light border-top pt-3">
-          <p>&copy; 2018 Copyright, All Rights Reserved</p>
+          <p class="lead">
+            &copy;
+            <span id="year"></span>
+            Olympia DataScience
+          </p>
         </div>
       </div>
     </div>
   </footer>
   <!-- end of footer -->
 
-  <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-  <script src="static/js/script.js"></script>
+  <script src="./static/js/jquery-3.3.1.js"></script>
+  <script src="./static/js/popper.min.js"></script>
+  <script src="./static/js/bootstrap.bundle.js"></script>
+  <script src="./static/js/script.js"></script>
+
+
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+
+    // Init Scrollspy
+    $('body').scrollspy({ target: '#main-nav' });
+
+    // Smooth Scrolling
+    $("#main-nav a").on('click', function (event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+
+        const hash = this.hash;
+
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function () {
+
+          window.location.hash = hash;
+        });
+      }
+    });
+  </script>
 </body>
 </html>
 
